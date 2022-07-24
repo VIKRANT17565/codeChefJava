@@ -13,22 +13,53 @@ public class HungryChef {
             int a,b;
             boolean isSolved = false;
 
-            for (int i = 0; i <= n; i++) {
-                a = i;
-                b = n-a;
+            // a = solveEqu(x, y, n, r);
 
+            // for (int i = a; i <= n/2; i++) {
+            //     a = i;
+            //     b = n-a;
+
+            //     if(a >= 0 && b >= 0){
+            //         if((x*a + y*b) <= r){
+            //             System.out.println(a+" "+b);
+            //             isSolved = true;
+            //             break;
+            //         }
+            //     }
+            // }
+
+            // if (!isSolved) {
+            //     System.out.println(-1);
+            // }
+
+
+            a = solveEqu(x, y, n, r);
+            if (a < 0) {
+                a = 0;
+            }
+            for (int i = a; i <= n; i++) {
+                a = i;
+                b = n-i;
+                
                 if((x*a + y*b) <= r){
                     System.out.println(a+" "+b);
                     isSolved = true;
                     break;
                 }
+                
             }
 
             if (!isSolved) {
                 System.out.println(-1);
             }
-
         }
         sc.close();
+    }
+
+    private static int solveEqu(int a, int b, int n, int r) {
+        int y = (a*n-r)/(a-b);
+        int x = n-y;
+
+        return x;
     }
 }

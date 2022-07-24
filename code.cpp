@@ -9,36 +9,41 @@ int main() {
 	
 	while(tc--)
 	{
-	    int n;
-	    cin>>n;
-	    
-        int v[n];
+	    int x,y,n,r, a, b;
+	    cin>>x>>y>>n>>r;
 
-	    for(int i = 0 ; i < n; i++)
-	    {
-	        cin>>v[i];
-	    }
-	    int count = 1;
-	    int two = 0;
-	    int result = 0;
-	    
-	    for(int i = 0; i < n; i++)
-	    {
-	        if(v[i] == 1)
-	        {
-	        result += n - count;
-	        count++;
-	        }
-	        
-	        if(v[i] == 2)
-	        {
-	        result += two;
-	        two++;
-	            
-	        }
-	    }
-	    
-	    cout<<result<<endl;
+		bool isSolved = false;
+
+		// for (int i = 0; i <= n; i++) {
+		// 	a = i;
+		// 	b = n-a;
+			
+		// 	if((x*a + y*b) <= r){
+		// 		cout<<a<<" "<<b;
+		// 		isSolved = true;
+		// 		break;
+		// 	}
+			
+		// }
+
+		a = 0;
+		while (a <= n)
+		{
+			b = n-a;
+
+			if((x*a + y*b) <= r){
+				cout<<a<<" "<<b;
+				isSolved = true;
+				break;
+			}
+
+			a++;
+		}
+		
+
+		if (!isSolved) {
+			cout<<-1;
+		}
 	}
 	return 0;
 }
