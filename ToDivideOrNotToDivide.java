@@ -9,6 +9,7 @@ public class ToDivideOrNotToDivide {
             int b = sc.nextInt();
             int n = sc.nextInt();
 
+            
             int num = solve(a,b,n);
             System.out.println(num);
 
